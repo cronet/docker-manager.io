@@ -1,7 +1,11 @@
 FROM mono:latest
 
+RUN apt update && apt install -y unzip wget
+
 RUN mkdir /opt/manager-server
-RUN curl https://d2ap5zrlkavzl7.cloudfront.net/19.11.68/ManagerServer.tar.gz | tar xvz -C /opt/manager-server
+RUN wget -q https://github.com/Manager-io/Manager.zip/releases/download/19.11.68/Manager.zip
+RUN unzip Manager.zip -d /opt/manager-server/
+RUN rm -f Manager.zip
 
 # Run instance of Manager
 CMD ["mono", "/opt/manager-server/ManagerServer.exe","-port","8080","-path","/data"]
