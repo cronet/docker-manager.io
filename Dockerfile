@@ -3,7 +3,7 @@ FROM mono:latest
 RUN apt update && apt install -y unzip wget
 
 RUN mkdir /opt/manager-server
-RUN wget -q https://github.com/Manager-io/Manager.zip/releases/download/20.2.66/Manager.zip
+RUN wget -q https://github.com/Manager-io/Manager.zip/releases/download/20.2.67/Manager.zip
 RUN unzip Manager.zip -d /opt/manager-server/
 RUN rm -f Manager.zip
 
