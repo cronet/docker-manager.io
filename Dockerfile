@@ -5,7 +5,7 @@ RUN apt update && DEBIAN_FRONTEND="noninteractive" apt install -y libicu66 unzip
 RUN if [ "$TZ" != "" ]; then ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata; fi
 
 RUN mkdir /opt/manager-server
-RUN wget -q https://github.com/Manager-io/Manager.zip/releases/download/20.10.2/ManagerServer-Linux-x64.zip
+RUN wget -q https://github.com/Manager-io/Manager.zip/releases/download/20.10.3/ManagerServer-Linux-x64.zip
 RUN unzip ManagerServer-Linux-x64.zip -d /opt/manager-server/
 RUN rm -f ManagerServer-Linux-x64.zip
 RUN chmod +x /opt/manager-server/ManagerServer
