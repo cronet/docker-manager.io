@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/runtime-deps:5.0
+FROM mcr.microsoft.com/dotnet/runtime-deps:5.0
 
 ADD https://github.com/Manager-io/Manager.zip/releases/latest/download/ManagerServer-Linux-x64.tar.gz /tmp/manager-server.tar.gz
 
