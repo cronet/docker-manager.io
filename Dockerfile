@@ -1,17 +1,15 @@
-FROM ubuntu:latest
+FROM mcr.microsoft.com/dotnet/runtime-deps:5.0
 
-RUN apt update && DEBIAN_FRONTEND="noninteractive" apt install -y libicu66 unzip wget
+ADD https://github.com/Manager-io/Manager.zip/releases/download/20.10.46/ManagerServer-Linux-x64.tar.gz /tmp/manager-server.tar.gz
 
-RUN if [ "$TZ" != "" ]; then ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && dpkg-reconfigure --frontend noninteractive tzdata; fi
-
-RUN mkdir /opt/manager-server
-RUN wget -q https://github.com/Manager-io/Manager.zip/releases/download/20.10.45/ManagerServer-Linux-x64.zip
-RUN unzip ManagerServer-Linux-x64.zip -d /opt/manager-server/
-RUN rm -f ManagerServer-Linux-x64.zip
-RUN chmod +x /opt/manager-server/ManagerServer
+RUN mkdir /opt/manager-server; \
+    tar -C /opt/manager-server/ -xzvf /tmp/manager-server.tar.gz; \
+    rm -f /tmp/manager-server.tar.gz; \
+    chmod +x /opt/manager-server/ManagerServer
 
 # Run instance of Manager
 CMD ["/opt/manager-server/ManagerServer","-port","8080","-path","/data"]
 
 VOLUME /data
 EXPOSE 8080
+
