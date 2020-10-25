@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/dotnet/runtime-deps:5.0
 
-ADD https://github.com/Manager-io/Manager.zip/releases/download/20.10.47/ManagerServer-Linux-x64.tar.gz /tmp/manager-server.tar.gz
+ADD https://github.com/Manager-io/Manager.zip/releases/download/20.10.48/ManagerServer-Linux-x64.tar.gz /tmp/manager-server.tar.gz
 
 RUN mkdir /opt/manager-server; \
     tar -C /opt/manager-server/ -xzvf /tmp/manager-server.tar.gz; \
