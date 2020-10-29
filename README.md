@@ -13,7 +13,6 @@ $ docker run -d cronet/manager.io
 ```
 $ docker run -d \
   --name Manager \
-  -e TZ=Europe/London \
   -p 8080:8080 \
   -v /path/to/my/data:/data \
   --restart=unless-stopped \
@@ -41,7 +40,6 @@ Add "--label=com.centurylinklabs.watchtower.enable=true" to run arguments of you
 ```
 $ docker run -d \
   --name Manager \
-  -e TZ=Europe/London \
   -p 8080:8080 \
   -v /path/to/my/data:/data \
   --restart=unless-stopped \
