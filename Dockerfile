@@ -1,4 +1,9 @@
-FROM mcr.microsoft.com/dotnet/runtime-deps:5.0
+FROM mcr.microsoft.com/dotnet/runtime-deps:6.0
+
+RUN apt update; \
+    apt install unzip; \
+    apt clean; \
+    rm -rf /var/lib/apt/lists/*
 
 RUN sed -i "s|DEFAULT@SECLEVEL=2|DEFAULT@SECLEVEL=1|g" /etc/ssl/openssl.cnf
 
