@@ -10,7 +10,7 @@ RUN sed -i "s|DEFAULT@SECLEVEL=2|DEFAULT@SECLEVEL=1|g" /etc/ssl/openssl.cnf
 ADD https://github.com/Manager-io/Manager/releases/download/22.6.20.110/ManagerServer-linux-x64.tar.gz /tmp/manager-server.tar.gz
 
 RUN mkdir /opt/manager-server/; \
-    tar -xz /tmp/manager-server.tar.gz -C /opt/manager-server/ --strip-components=1; \
+    tar -xzf /tmp/manager-server.tar.gz -C /opt/manager-server/; \
     rm -f /tmp/manager-server.tar.gz; \
     chmod +x /opt/manager-server/ManagerServer
 
