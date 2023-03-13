@@ -7,7 +7,7 @@ RUN apt update; \
 
 RUN sed -i "s|DEFAULT@SECLEVEL=2|DEFAULT@SECLEVEL=1|g" /etc/ssl/openssl.cnf
 
-ADD https://github.com/Manager-io/Manager/releases/download/23.3.12.689/ManagerServer-linux-x64.tar.gz /tmp/manager-server.tar.gz
+ADD https://github.com/Manager-io/Manager/releases/download/23.3.13.692/ManagerServer-linux-x64.tar.gz /tmp/manager-server.tar.gz
 
 RUN mkdir /opt/manager-server/; \
     tar -xzf /tmp/manager-server.tar.gz -C /opt/manager-server/; \
